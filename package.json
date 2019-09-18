@@ -1,0 +1,25 @@
+{
+  "name": "i18n-chinese-node",
+  "version": "1.0.0",
+  "description": "i18n environment Chinese extract and input",
+  "main": "index.js",
+  "scripts": {
+    "test": "node getLang.js"
+  },
+  "bin": {
+    "i18n-chinese": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xujiujiu/i18n-chinese-node.git"
+  },
+  "keywords": [
+    "i18n"
+  ],
+  "author": "xujiujiu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xujiujiu/i18n-chinese-node/issues"
+  },
+  "homepage": "https://github.com/xujiujiu/i18n-chinese-node#readme"
+}
