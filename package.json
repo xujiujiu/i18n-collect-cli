@@ -1,5 +1,5 @@
 {
-  "name": "i18n-chinese-node",
+  "name": "i18n-collect-cli",
   "version": "1.0.0",
   "description": "i18n environment Chinese extract and input",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "node getLang.js"
   },
   "bin": {
-    "i18n-chinese": "./index.js"
+    "i18n-collect-cli": "./index.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/xujiujiu/i18n-chinese-node/issues"
   },
-  "homepage": "https://github.com/xujiujiu/i18n-chinese-node#readme"
+  "homepage": "https://github.com/xujiujiu/i18n-chinese-node#readme",
+  "devDependencies": {
+    "commander": "^3.0.2"
+  }
 }
