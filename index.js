@@ -2,8 +2,8 @@
 
 const program = require('commander')
 const child_process = require('child_process')
-const getLang = require('./getLang')
-const writeLang = require('./writeLang')
+const getLang = require('./lib/getLang')
+const writeLang = require('./lib/writeLang')
 
 
 
