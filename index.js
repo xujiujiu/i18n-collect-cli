@@ -11,12 +11,16 @@ program.version(require('./package').version)
 
 program.command('getlang [src]')
     .description('对[src]目录下的.vue .js 文件进行中文收集，默认src目录下面的pages和components目录')
-    .option('-f, --filename <filename>', '设置生成的文件名，默认为 zh_cn')
+    .option('-f, --filename <filename>', '设置生成的文件名，默认为 zh_cn.json，需为 .json 文件')
     .option('-d, --dir <pages>', '需要收集中文的文件夹，默认为pages 和 components', value => {
         return value.split(',')
     })
-    .action((pages = ['pages', 'components'], {filename = 'zh_cn'}) => {
-        getLang.getLang(pages, filename)
+    .action((src = 'src', {pages = ['pages', 'components'], filename = 'zh_cn.json'}) => {
+        if(filename.includes('.json')) {
+            getLang.getLang(src, pages, filename)
+        } else {
+            console.log('filename 必须是json文件类型')
+        }
     })
 
 program.command('writelang [src]')
@@ -25,8 +29,12 @@ program.command('writelang [src]')
     .option('-d, --dir <pages>', '需要替换的文件夹，默认为 pages 和 components', value => {
         return value.split(',')
     })
-    .action((src = 'srcDist', pages = ['pages', 'components'], {filename = 'zh_cn.json'}) => {
-        writeLang.writeLang(src, pages, filename)
+    .action((src = 'srcDist', {pages = ['pages', 'components'], filename = 'zh_cn.json'}) => {
+        if(filename.includes('.json')) {
+            writeLang.writeLang(src, pages, filename)
+        } else {
+            console.log('filename 必须是json文件类型')
+        }
     })
 
 program.on('command:*', function () {
