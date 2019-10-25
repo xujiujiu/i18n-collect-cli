@@ -3,6 +3,7 @@
 const program = require('commander')
 const getLang = require('./lib/getLang')
 const writeLang = require('./lib/writeLang')
+const child_process = require('child_process')
 const excel = require('./lib/langToExcel')
 const fs = require('fs')
 const path = require('path')
@@ -47,7 +48,7 @@ program.command('toexcel')
     .option('-f, --filename <filename>', '[optional]生成的excel文件名，默认当前位置，不能修改存储地址，格式可以为".xls", ".xml",".xlsx",".xlsm"')
     .action(({url, filename = 'zh.xlsx'}) => {
         if(!url){
-            console.error('path must be url!')
+            console.error("url must be file's path!")
             program.help();
             process.exit()
         }
@@ -80,6 +81,57 @@ program.command('toexcel')
         });
         
     })
+
+    // 将excel文件转成js并输出，js文件默认为执行脚本所在位置且不能修改 
+program.command('tojs')
+.description('将多语言js文件转成excel表格')
+.option('-f, --filename <filename>', '[optional]多语言js文件, 默认当前位置，不能修改存储地址，如xx.js')
+.option('-u, --url <url>', '[must]excel文件路径，格式可以为".xls", ".xml",".xlsx",".xlsm"')
+.action(({url, filename = 'zh.js'}) => {
+    if(!url){
+        console.error("url must be file's path!")
+        program.help();
+        process.exit()
+    }
+    if(filename.slice(filename.lastIndexOf('.'), filename.length) !== '.js'){
+        console.error('请输入正确格式（.js）的多语言文件')
+        process.exit()
+    }
+
+    if(!['.xlsx', '.xls', '.xlsm', '.xml'].includes(url.slice(url.lastIndexOf('.'), url.length))){
+        console.error('请输入正确格式（.xlsx，.xls）的 excel 文件名')
+        process.exit()
+    }
+    if(filename.includes(path.sep) || filename.includes('/')){
+        console.error('请输入正确的 js 文件名称')
+        process.exit()
+    }
+    fs.access(process.cwd() + url, fs.constants.F_OK, (err) => {
+        if (err) {
+            console.error(`${url}文件不存在`);
+            process.exit()
+        } else {
+            console.log(excel)
+            excel.tojs(url, filename, (err) => {
+                if(err) {
+                    console.error(err)
+                } else {
+                    // lint 格式化 大部分场景没有eslint 且不在项目中，故取消格式化的操作
+                    // child_process.exec('npm run lint', {cwd: process.cwd()}, (error) => {
+                    //     if(error) {
+                    //         console.log('please: npm install eslint \n npm run lint')
+                    //         console.error(error)
+                    //     } else {
+                    //         console.log('finish!')
+                    //     }
+                    // })
+                    console.log('finish!')
+                }
+            })
+        }
+    });
+    
+})
 
 program.on('command:*', function () {
     console.error('Invalid command: %s\nSee --help for a list of available commands.', program.args.join(' '));
