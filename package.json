@@ -7,7 +7,7 @@
     "test": "node getLang.js"
   },
   "bin": {
-    "i18n-collect-cli": "./index.js"
+    "i18n-cli": "./index.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,8 @@
   "homepage": "https://github.com/xujiujiu/i18n-chinese-node#readme",
   "devDependencies": {
     "commander": "^3.0.2"
+  },
+  "dependencies": {
+    "node-xlsx": "^0.15.0"
   }
 }
