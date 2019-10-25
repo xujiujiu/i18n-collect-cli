@@ -1,4 +1,6 @@
-### vue项目中中文的提取与国际化写入脚本使用手册
+## 项目国际化处理工具
+
+### 项目中中文的提取与国际化写入脚本使用手册
 
 > 1. 目前脚本 **仅支持 components 与 pages 里的 .vue 文件和 .js 文件** 中的中文提取与写入，如果涉及其他文件夹下的内容，可根据脚本内容进行修改对应需要处理的文件内容
 > 2. 目前支持 vue 项目
@@ -12,7 +14,7 @@
 
 2. 执行 getLang 进行提取中文操作，filename 默认为 zh_cn
 
-> $ i18n-collect-cli getLang [src] -f <filename> -d pages,components
+> $ i18n-cli getLang [pages] -f <filename> -d pages,components
 
 执行完成后会在同级目录下生成一个 zh_cn.json 文件，内容格式形同如下：
 
@@ -46,7 +48,7 @@
 
 4. 执行 writeLang 将中文以 i18n 的模式写入文件（仅支持 components 与 pages 里的 .vue 文件和 .js 文件）
 
-> $ i18n-collect-cli getLang [srcDist] -f <filename> -d pages,components
+> $ i18n-cli getLang [src] -f <filename> -d pages,components
 
 > 注：非 .vue 文件需要引用 i18n 才能使用
 
@@ -59,6 +61,8 @@
 
 > 注： 以上基于项目中已加入 i18n ，并且已做好配置。
 
-该脚本还不够完善，但能够提高一定的效率。
+该脚本还不够完善，但目前能够解决几个未做这一块的能力中心项目的多语言的初步处理，能够提高一定的效率。另外，欢迎补充。
 
-另外，欢迎补充。
+### 国际化语言提取与增量处理
+
+专业的事情找专业的人做，毕竟不是所有的开发人员都能做翻译。所以会有找相关翻译人员处理国际化语言的需求，估有了此工具，用于提取js文件里的关键数据，转成excel表格交给专业的人进行翻译，那么，翻译完成后还需将excel表格的翻译内容用该脚本处理成js文件
