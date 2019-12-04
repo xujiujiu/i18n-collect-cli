@@ -1,6 +1,6 @@
 {
   "name": "i18n-collect-cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "i18n environment Chinese extract and input",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xujiujiu/i18n-chinese-node.git"
+    "url": "git+https://github.com/xujiujiu/i18n-collect-cli.git"
   },
   "keywords": [
     "i18n"
@@ -19,9 +19,9 @@
   "author": "xujiujiu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/xujiujiu/i18n-chinese-node/issues"
+    "url": "https://github.com/xujiujiu/i18n-collect-cli/issues"
   },
-  "homepage": "https://github.com/xujiujiu/i18n-chinese-node#readme",
+  "homepage": "https://github.com/xujiujiu/i18n-collect-cli#readme",
   "devDependencies": {
     "commander": "^3.0.2"
   },
