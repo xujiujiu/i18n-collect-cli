@@ -26,6 +26,7 @@
     "commander": "^3.0.2"
   },
   "dependencies": {
+    "lodash.set": "^4.3.2",
     "node-xlsx": "^0.15.0"
   }
 }
