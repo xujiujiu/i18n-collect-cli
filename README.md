@@ -6,7 +6,7 @@
 > 2. 目前支持 vue 项目
 > 3. 写入的脚本需 **本地 node 环境版本不能低于 10.12.0**
 
-### 从项目中提取所有中文字段并根据i18n规则写入项目中
+### 从项目中提取所有中文字段并根据 i18n 规则写入项目中
 
 1. 安装工具依赖包
 
@@ -14,9 +14,14 @@
 
 2. 执行 getLang 进行提取中文操作，filename 默认为 zh_cn.json
 
-> $ i18n-cli getlang [pages] -f <filename> -d pages,components
+> $ i18n-cli getlang [src] -f <filename> -d <dir> -i <ignoredir>
 
-执行完成后会在同级目录下生成一个 zh_cn.json 文件，内容格式形同如下：
++ src 为入口目录
++ filename 为生成的语言文件的文件名，必须为json格式， 默认为zh_cn.json
++ dir 为要收集的文件目录, 默认为 [pages, components]
++ ignoredir 为 dir 目录下被忽略的文件目录
+
+执行完成后会在同级目录下生成一个 zh_cn.json 文件，通过json格式化后（**必须要格式化，否则后续通过 $t 写入项目会报错**），内容格式形同如下：
 
 ```js
 {
@@ -48,9 +53,17 @@
 
 4. 执行 writeLang 将中文以 i18n 的模式写入文件（仅支持 components 与 pages 里的 .vue 文件和 .js 文件）
 
-> $ i18n-cli writelang [src] -f <filename> -d pages,components
+> $ i18n-cli writelang [srcDist] -f <filename> -d <dir> -i <ignoredir>
+  
+  
++ srcDist 为复制 src 出来的文件夹名
++ filename 为生成的语言文件的文件名，必须为json格式， 默认为zh_cn.json
++ dir 为要替换成 $t 的文件目录, 默认为 [pages, components]
++ ignoredir 为 dir 目录下被忽略的文件目录
 
-> 注：非 .vue 文件需要引用 i18n 才能使用
+> 注：
+> 1、非 .vue 文件需要引用 i18n 才能使用
+> 2、dir 可以是src下的任意文件目录
 
 执行以上脚本后会在 src 同级目录生成 srcDist 文件夹，文件夹内仅包含 components 与 pages 文件夹下的 .vue 文件和 .js 文件
 
