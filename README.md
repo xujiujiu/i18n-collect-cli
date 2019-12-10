@@ -12,13 +12,13 @@
 
 ```js
 $ npm i -g i18n-collect-cli
-```js
+```
 
 2. 执行 getLang 进行提取中文操作，filename 默认为 zh_cn.json
 
 ```js
 $ i18n-cli getlang [src] -f <filename> -d <dir> -i <ignoredir>
-```js
+```
 
 + src 为入口目录
 + filename 为生成的语言文件的文件名，必须为json格式， 默认为zh_cn.json
@@ -59,7 +59,7 @@ $ i18n-cli getlang [src] -f <filename> -d <dir> -i <ignoredir>
 
 ```js
 $ i18n-cli writelang [srcDist] -f <filename> -d <dir> -i <ignoredir>
-```js
+```
   
 + srcDist 为复制 src 出来的文件夹名
 + filename 为生成的语言文件的文件名，必须为json格式， 默认为zh_cn.json
@@ -91,7 +91,7 @@ $ i18n-cli writelang [srcDist] -f <filename> -d <dir> -i <ignoredir>
 
 ```js
 $ i18n-cli toexcel [url] [translateUrl] [filename] 
-```js
+```
 
 url 必填，为js文件的路径
 translateUrl 选填，为已经翻译的语言的js，用于提取语言增量
@@ -146,7 +146,7 @@ export default {
 
 ```js
 $ i18n-cli tojs [url] [filename]
-```js
+```
 
    [filename] 多语言js文件，默认 translate.js, 默认当前位置，不能修改存储地址，如xx.js,
    [url] excel文件路径，格式可以为".xls", ".xml",".xlsx",".xlsm"
