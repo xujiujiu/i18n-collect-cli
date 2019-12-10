@@ -19,9 +19,12 @@ program.command('getlang [src]')
     .option('-d, --dir <dir>', '[optional]需要收集中文的文件夹，默认为pages 和 components', value => {
         return value.split(',')
     })
-    .action((src = 'src', {dir = ['pages', 'components'], filename = 'zh_cn.json'}) => {
+    .option('-d, --ignoredir <ignoredir>', '[optional]需要收集中文的文件夹，默认为pages 和 components', value => {
+        return value.split(',')
+    })
+    .action((src = 'src', {dir = ['pages', 'components'], filename = 'zh_cn.json', ignoredir}) => {
         if(filename.includes('.json')) {
-            getLang.getLang(src, dir, filename)
+            getLang.getLang(src, dir, filename, ignoredir)
         } else {
             console.error('filename 必须是json文件类型')
         }
@@ -33,9 +36,12 @@ program.command('writelang [src]')
     .option('-d, --dir <dir>', '[optional]需要替换的文件夹，默认为 pages 和 components\n', value => {
         return value.split(',')
     })
-    .action((src = 'srcDist', {dir = ['pages', 'components'], filename = 'zh_cn.json'}) => {
+    .option('-i, --ignoredir <ignoredir>', '[optional]需要替换的文件夹，默认为 pages 和 components\n', value => {
+        return value.split(',')
+    })
+    .action((src = 'srcDist', {dir = ['pages', 'components'], filename = 'zh_cn.json', ignoredir}) => {
         if(filename.includes('.json')) {
-            writeLang.writeLang(src, dir, filename)
+            writeLang.writeLang(src, dir, filename, ignoredir)
         } else {
             console.error('filename 必须是json文件类型')
         }
