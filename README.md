@@ -194,3 +194,30 @@ $ i18n-cli tojs <url> <filename>
 ### 附录
 
 1、若遇到安装该工具出现无权限问题时，建议使用管理员权限安装或将npm的依赖安装目录设置为非系统路径
+
+2、项目中中文内容中包含 >、<、= 字符需转换成大于、小于、等于等中文字样。如：'分数>=200分的' 需转换成 '分数大于等于200分的'
+
+3、如果是将英文转excel，则对应的英文需要转义
+```js
+// bad
+export default {
+  cs_common: {
+    tip: 'it"s me'
+  }
+}
+
+//good
+export default {
+  cs_common: {
+    tip: 'it\"s me'
+  }
+}
+
+//good
+export default {
+  cs_common: {
+    tip: 'it\'s me'
+  }
+}
+
+```
