@@ -1,6 +1,6 @@
 {
   "name": "i18n-collect-cli",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "i18n environment Chinese extract and input",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
     "commander": "^3.0.2"
   },
   "dependencies": {
+    "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "node-xlsx": "^0.15.0"
   }
