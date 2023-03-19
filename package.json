@@ -1,6 +1,6 @@
 {
   "name": "i18n-collect-cli",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "i18n environment Chinese extract and input",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
   "bin": {
     "i18n-cli": "./index.js"
   },
+  "files": ["index.js", "lib"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xujiujiu/i18n-collect-cli.git"
