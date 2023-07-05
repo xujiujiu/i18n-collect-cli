@@ -34,10 +34,10 @@ program.command('writelang [src]')
     .description('将项目需要配置国际化的文件复制一份，并将文件中的中文替换成对应的key值，src为复制的文件目录, 默认为srcDist\n')
     .option('-f, --filename <filename>', '[optional]需要获取中文key值的文件，默认为 zh_cn.json\n')
     .option('-d, --dir <dir>', '[optional]需要替换的文件夹，默认为 pages 和 components\n', value => {
-        return value.split(',')
+        return value.split(/\s+/)
     })
-    .option('-i, --ignoredir <ignoredir>', '[optional]需要替换的文件夹，默认为 pages 和 components\n', value => {
-        return value.split(',')
+    .option('-i, --ignoredir <ignoredir>', '[optional]需要忽略的文件夹\n', value => {
+        return value.split(/\s+/)
     })
     .action((src = 'srcDist', {dir = ['pages', 'components'], filename = 'zh_cn.json', ignoredir}) => {
         if(filename.includes('.json')) {
