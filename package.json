@@ -1,6 +1,6 @@
 {
   "name": "i18n-collect-cli",
-  "version": "1.0.1",
+  "version": "1.0.2-bate",
   "description": "i18n environment Chinese extract and input",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,7 @@
   "homepage": "https://github.com/xujiujiu/i18n-collect-cli#readme",
   "dependencies": {
     "chalk": "^4.1.0",
-    "commander": "^7.1.0",
+    "commander": "^7.2.0",
     "cross-spawn": "^7.0.3",
     "fs-extra": "^9.1.0",
     "lodash.get": "^4.4.2",
