@@ -33,7 +33,7 @@ $ npm i -g i18n-collect-cli
 1. 执行 getLang 进行提取中文操作，filename 默认为 zh_cn.json
 
 ```js
-$ i18n-cli getlang <src> -f <filename> -d <dir> -i <ignoredir>
+$ i18n-collect-cli getlang <src> -f <filename> -d <dir> -i <ignoredir>
 ```
 
 + src 为入口目录
@@ -44,7 +44,7 @@ $ i18n-cli getlang <src> -f <filename> -d <dir> -i <ignoredir>
 如输入下面的指令后会从 pages,components 目录中提取 js 及 vue 文件内的中文并生成一个 zh.json 文件
 
 ```js
-$ i18n-cli getlang src -f zh.json -d pages,components
+$ i18n-collect-cli getlang src -f zh.json -d pages,components
 ```
 
 执行完成后会在同级目录下生成一个 zh_cn.json 文件，通过json格式化后（**必须要格式化，否则后续通过 $t 写入项目会报错**），内容格式形同如下：
@@ -83,7 +83,7 @@ $ i18n-cli getlang src -f zh.json -d pages,components
 1. 执行 writeLang 将中文以 i18n 的模式写入文件（仅支持 components 与 pages 里的 .vue 文件和 .js 文件）
 
 ```js
-$ i18n-cli writelang <srcDist> -f <filename> -d <dir> -i <ignoredir>
+$ i18n-collect-cli writelang <srcDist> -f <filename> -d <dir> -i <ignoredir>
 ```
   
 + srcDist 为复制 src 出来的文件夹名
@@ -116,7 +116,7 @@ $ i18n-cli writelang <srcDist> -f <filename> -d <dir> -i <ignoredir>
 1、将语言文件 zh.js 转成 excel 表格，好提供给专业的人进行翻译
 
 ```js
-$ i18n-cli toexcel <url> <translateUrl> <filename>
+$ i18n-collect-cli toexcel <url> <translateUrl> <filename>
 ```
 
 + url 必填，为js文件的路径
@@ -175,7 +175,7 @@ export default {
 1、将翻译好的文件整理成 js 文件
 
 ```js
-$ i18n-cli tojs <url> <filename>
+$ i18n-collect-cli tojs <url> <filename>
 ```
 
 + [filename] 多语言js文件，默认 translate.js, 默认当前位置，不能修改存储地址，如xx.js
