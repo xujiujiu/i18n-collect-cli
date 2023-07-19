@@ -1,6 +1,6 @@
 {
   "name": "i18n-collect-cli",
-  "version": "1.0.2-bate",
+  "version": "1.0.3-bate",
   "description": "i18n environment Chinese extract and input",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,8 @@
   },
   "files": [
     "index.js",
-    "lib"
+    "lib",
+    "utils"
   ],
   "repository": {
     "type": "git",

@@ -7,7 +7,7 @@ const child_process = require('child_process')
 const excel = require('./lib/langToExcel')
 const fs = require('fs')
 const path = require('path')
-const check = require('./util/check')
+const check = require('./utils/check')
 
 ;(async () => {
 	await check.checkUpdate()
