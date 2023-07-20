@@ -218,7 +218,7 @@ const check = require('./utils/check')
 		)
 		process.exit(1)
 	})
-	if (process.argv.length === 2) {
+	if (process.argv && process.argv.length < 3) {
 		program.help()
 	}
 
