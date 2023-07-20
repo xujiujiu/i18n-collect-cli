@@ -44,7 +44,7 @@ const check = require('./utils/check')
 				{ dir = ['pages', 'components'], filename = 'zh_cn.json', ignoredir }
 			) => {
 				if (filename.includes('.json')) {
-					getLang.getLang(src, dir, filename, ignoredir)
+					getLang(src, dir, filename, ignoredir)
 				} else {
 					console.error('filename 必须是json文件类型')
 				}
@@ -80,7 +80,7 @@ const check = require('./utils/check')
 				{ dir = ['pages', 'components'], filename = 'zh_cn.json', ignoredir }
 			) => {
 				if (filename.includes('.json')) {
-					writeLang.writeLang(src, dir, filename, ignoredir)
+					writeLang(src, dir, filename, ignoredir)
 				} else {
 					console.error('filename 必须是json文件类型')
 				}
