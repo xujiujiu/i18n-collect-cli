@@ -125,14 +125,14 @@ const check = require('./utils/check')
 				console.error('请输入正确的 excel 文件名称')
 				process.exit()
 			}
-			fs.access(process.cwd() + url, fs.constants.F_OK, (err) => {
+			fs.access(path.join(process.cwd(), url.replace('/', path.sep)), fs.constants.F_OK, (err) => {
 				if (err) {
 					console.error(`${url}文件不存在`)
 					process.exit()
 				} else {
 					if (translateUrl) {
 						fs.access(
-							process.cwd() + translateUrl,
+							path.join(process.cwd(), translateUrl.replace('/', path.sep)),
 							fs.constants.F_OK,
 							(err) => {
 								if (err) {
@@ -195,7 +195,7 @@ const check = require('./utils/check')
 				console.error('请输入正确的 js 文件名称')
 				process.exit()
 			}
-			fs.access(process.cwd() + url, fs.constants.F_OK, (err) => {
+			fs.access(path.join(process.cwd(), url.replace('/', path.sep)), fs.constants.F_OK, (err) => {
 				if (err) {
 					console.error(`${url}文件不存在`)
 					process.exit()
